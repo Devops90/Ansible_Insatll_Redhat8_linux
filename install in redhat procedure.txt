@@ -1,0 +1,53 @@
+# Install ansible on redhat8 and redhat7
+
+#Enable epel repository for RHL8/Centos8
+$ yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+#Enable repository for RHL7/Centos7
+$ yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+#pyhon2 or python3 mandatery to install ansible 
+$ yum install python2  (or)
+$ yum install python36 (or)  3.6 version
+
+#check pip2 version
+$ pip2 --version
+
+#install ansible throuh pip
+$ pip2 install ansible
+$ ansible --version
+  ansible 2.9.10
+
+# after installation default config file = None 
+# for config file go to /etc/ansible
+$ /etc/ansible
+$ mkdir roles
+$ touch config.cfg hosts
+
+# now get the ansible config file
+# ansible config = /etc/ansible
+
+#configure ansible to non root user
+# useradd ansadmin
+# su ansadmin
+ansadmin$
+# create ansadmin own inventery
+$mkdir ansible
+$cd ansible
+$ mkdir roles
+$touch ansible.cfg hosts
+
+# default hosts location add in config.cfg file
+$vi config.cfg
+
+[defaults]  
+inventory    = ./hosts
+host_key_checking  =  False
+# then we dont use the -i hosts
+$ ansible all -m ping 
+
+
+
+
+
+
